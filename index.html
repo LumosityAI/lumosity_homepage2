@@ -81,13 +81,14 @@
                         <p class="p-large">Sign up below to learn more and stay up-to-date.</p>
 
                         <!-- Sign Up Form 1 -->
-                        <form>
+                        <form id="signup-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd8agTLqWz_vpnG2qU69zbicwT0i9HD-a2jbrcmqRMRMUeCtg/formResponse" method="POST">
                             <div class="mb-4 form-floating">
-                                <input type="email" class="form-control" id="signup" placeholder="name@example.com">
+                                <input type="email" name="entry.431293513" class="form-control" id="signup" placeholder="name@example.com">
                                 <label for="signup">Email address</label>
                             </div>
                             <button type="submit" class="form-control-submit-button">Get Started</button>
                         </form>
+                        <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd8agTLqWz_vpnG2qU69zbicwT0i9HD-a2jbrcmqRMRMUeCtg/viewform?embedded=true" width="640" height="450" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
                         <!-- end of sign up form 1 -->
 
                     </div> <!-- end of col -->
@@ -251,5 +252,32 @@
         <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
         <script src="js/purecounter.min.js"></script> <!-- Purecounter counter for statistics numbers -->
         <script src="js/scripts.js"></script> <!-- Custom scripts -->
+
+        <!-- Email script -->
+        <script>
+            document.getElementById('signup-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let formData = new FormData(e.target);
+                const submitMessage = "<div>Great! We've received your email. Stay tuned for exciting updates.</div>"
+                
+                fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSd8agTLqWz_vpnG2qU69zbicwT0i9HD-a2jbrcmqRMRMUeCtg/formResponse', {
+                    method: 'POST',
+                    body: new URLSearchParams(formData),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        document.getElementById('signup-form').outerHTML = submitMessage;
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                }).catch(error => {
+                    // console.error('There has been a problem with your fetch operation:', error);
+                    document.getElementById('signup-form').outerHTML = submitMessage;
+                });
+            });
+        </script>
     </body>
 </html>
