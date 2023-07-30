@@ -314,9 +314,11 @@ hr.hr-heading {
 	display: inline-block;
 	width: 100%;
 	height: 3.625rem;
-	border: 1px solid #fc5fa1;
+	/* border: 1px solid #fc5fa1; */
+	border: 1px solid #f89f2b;
 	border-radius: 32px;
-	background-color: #fc5fa1;
+	/* background-color: #fc5fa1; */
+	background-color: #f89f2b;
 	color: #ffffff;
 	font-weight: 600;
 	font-size: 0.875rem;
@@ -326,9 +328,9 @@ hr.hr-heading {
 }
 
 .form-control-submit-button:hover {
-	border: 1px solid #fc5fa1;
+	border: 1px solid #f89f2b;
 	background-color: transparent;
-	color: #fc5fa1;
+	color: #f89f2b;
 }
 
 .modal-dialog {
@@ -481,7 +483,8 @@ hr.hr-heading {
 	position: relative;
 	padding-top: 7.5rem;
 	padding-bottom: 2.5rem;
-	background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url('../images/header-background.jpg') left center no-repeat;
+	/* background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.4)), url('../images/header-background.jpg') left center no-repeat; */
+	background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
 	background-size: cover;
 	text-align: center;
 }
@@ -779,7 +782,7 @@ hr.hr-heading {
 .basic-3 {
 	padding-top: 8.75rem;
 	padding-bottom: 8.25rem;
-	background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url('../images/header-background.jpg') center center no-repeat;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url('../images/header-background.jpg') center center no-repeat;
 	background-size: cover;
 	text-align: center;
 }
