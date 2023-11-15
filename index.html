@@ -82,7 +82,7 @@
                         <p class="p-large">Sign up below to learn more and stay up-to-date.</p>
 
                         <!-- Sign Up Form 1 -->
-                        <form id="signup-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdr68osKiGOIjYuwgkGzjimQfKm_yjBD80qiNZltUGezduMaw/formResponse" method="POST">
+                        <form id="signup-form" action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdr68osKiGOIjYuwgkGzjimQfKm_yjBD80qiNZltUGezduMaw/formResponse" method="POST">
                             <div class="mb-4 form-floating">
                                 <input type="email" name="entry.1811966333" class="form-control" id="signup" placeholder="name@example.com">
                                 <label for="signup">Email address</label>
@@ -260,14 +260,16 @@
                 
                 let formData = new FormData(e.target);
                 const submitMessage = "<div>Great! We've received your email. Stay tuned for exciting updates.</div>"
-                
-                fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSd8agTLqWz_vpnG2qU69zbicwT0i9HD-a2jbrcmqRMRMUeCtg/formResponse', {
+
+                const options = {
                     method: 'POST',
                     body: new URLSearchParams(formData),
                     headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
+                        'Accept': 'application/json',
+                    },
+                }
+                
+                fetch(e.target.action, options).then(response => {
                     if (response.ok) {
                         document.getElementById('signup-form').outerHTML = submitMessage;
                     } else {
