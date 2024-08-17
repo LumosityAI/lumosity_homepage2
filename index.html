@@ -280,8 +280,13 @@
             const canvas = document.getElementById('background-canvas');
             const ctx = canvas.getContext('2d');
 
+            // Used to buffer drawing to improve performance
+            const offscreenCanvas = document.createElement('canvas');
+            const offscreenCtx = offscreenCanvas.getContext('2d');
+
             let time = 0;
-            // const baseColor = [52, 152, 219]; // RGB for #3498db
+            let animationFrameId = null;
+            
             const baseColor = [200, 200, 200]; // RGB for #3498db
             const lineWidth = 1;
             const numLines = 15;
@@ -289,17 +294,19 @@
             function resizeCanvas() {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
+                offscreenCanvas.width = canvas.width;
+                offscreenCanvas.height = canvas.height;
             }
 
             function drawContourLines() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                offscreenCtx.clearRect(0, 0, canvas.width, canvas.height);
 
                 for (let l = 0; l < numLines; l++) {
-                    ctx.beginPath();
+                    offscreenCtx.beginPath();
 
-                    for (let x = 0; x <= canvas.width; x += 5) {
-                        const normalizedX = x / canvas.width - 0.5; // -0.5 to 0.5
-                        const baseY = canvas.height / 2;
+                    for (let x = 0; x <= offscreenCanvas.width; x += 50) {
+                        const normalizedX = x / offscreenCanvas.width - 0.5; // -0.5 to 0.5
+                        const baseY = offscreenCanvas.height / 2;
                         
                         // Create a parabolic curve
                         const parabola = -4 * Math.pow(normalizedX, 2) + 1.0;
@@ -312,28 +319,55 @@
                         const y = baseY + (parabola + waviness) * canvas.height * 0.4 - l * 20;
                         
                         if (x === 0) {
-                            ctx.moveTo(x, y);
+                            offscreenCtx.moveTo(x, y);
                         } else {
-                            ctx.lineTo(x, y);
+                            offscreenCtx.lineTo(x, y);
                         }
                     }
 
                     const alpha = 0.3 + (0.7 * l / numLines);
-                    ctx.strokeStyle = `rgba(${baseColor[0]}, ${baseColor[1]}, ${baseColor[2]}, ${alpha})`;
-                    ctx.lineWidth = lineWidth;
-                    ctx.stroke();
+                    offscreenCtx.strokeStyle = `rgba(${baseColor[0]}, ${baseColor[1]}, ${baseColor[2]}, ${alpha})`;
+                    offscreenCtx.lineWidth = lineWidth;
+                    offscreenCtx.stroke();
+                }
+
+                // Draw the offscreen canvas onto the main canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(offscreenCanvas, 0, 0);
+            }
+
+            function startAnimation() {
+                if (!animationFrameId) {
+                    animationFrameId = requestAnimationFrame(animate);
                 }
             }
 
-            function animate() {
-                time += 0.005;
+            function stopAnimation() {
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                    animationFrameId = null;
+                }
+            }
+
+            function animate(currentTime) {
+                // time += 0.002;
+                time = currentTime * 0.0001;
                 drawContourLines();
-                requestAnimationFrame(animate);
+                animationFrameId = requestAnimationFrame(animate);
             }
 
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
-            // animate();
+            // startAnimation();
+
+            // Stop animation when page is not visible
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    stopAnimation();
+                } else {
+                    startAnimation();
+                }
+            });
         </script>
 
         <!-- Email script -->
