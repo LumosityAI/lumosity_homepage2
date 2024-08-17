@@ -1,0 +1,59 @@
+@import url('variables.css');
+
+body {
+    background-color: var(--primary-bg);
+    font-family: "Noto Sans JP", sans-serif;
+    margin: 0;
+    /* font-optical-sizing: auto; */
+    /* font-weight: <weight>; */
+    /* font-style: normal; */
+}
+
+
+.navbar {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid var(--secondary-accent);
+}
+
+.navbar-container {
+    display: flex;
+    z-index: 2;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px 0px 10px;
+}
+
+.navbar-group {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar-item {
+    cursor: pointer;
+}
+
+.navbar-item-bg {
+    background-color: var(--primary-bg);
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-item {
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 5px;
+    border: 0px;
+    box-shadow: 0px 0px 5px 0px var(--secondary-accent);
+}
+
+.btn-item:hover {
+    transition: 0.5s;
+    box-shadow: 0px 0px 5px 0px var(--primary-accent);
+}
