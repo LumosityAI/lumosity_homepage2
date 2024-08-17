@@ -23,6 +23,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
         
         <!-- Styles -->
         <link href="css/styles2.css" rel="stylesheet">
@@ -72,14 +73,14 @@
         <!-- Hero -->
         <div class="hero">
             <h1 class="hero-title">
-                Better Decisions, Faster
+                Better Decisions, <span style="color:#fb9120">Faster</span>
             </h1>
             <span class="hero-subtitle">
-                Helping financial experts cut through the noise by automating processes<br /> and highlighting key insights for rapid, informed decision-making.
+                Lumosity helps financial experts cut through the noise by automating<br/>processes and highlighting key insights for rapid, informed decision-making.
             </span>
             <span
                 class="btn-group"
-                style="margin-top: 2rem;align-self: center;"
+                style="margin-top: 3rem;align-self: center;"
             >
                 <button
                     class="btn-item"
@@ -107,10 +108,44 @@
 
 
         <!-- Product Description -->
-        <div>
-            <h2>Insights Before You Know It</h2>
-            <h2>Automate Your Workflows</h2>
-            <h2>Dashboard/Summaries Tailored To You</h2>
+        <div class="product-container">
+            <div class="product-section">
+                <span>
+                    <h2>Insights Before You Know It</h2>
+                    <p>
+                        Lumosity processes data throughout the day...surfaces important
+                        insights before you even have to ask.
+                    </p>
+                </span>
+                <span class="placeholder">
+                    placeholder
+                </span>
+            </div>
+
+            <div class="product-section">
+                <span class="placeholder">
+                    placeholder
+                </span>
+                <span>
+                    <h2>Automate Your Workflows</h2>
+                    <p>
+                        Lumosity processes...so you can spend less time on rote tasks
+                        and more time doing what actually matters.
+                    </p>
+                </span>
+            </div>
+
+            <div class="product-section">
+                <div>
+                    <h2>Tailored To You</h2>
+                    <p>
+                        Dashboards and summaries...
+                    </p>
+                </div>
+                <span class="placeholder">
+                    placeholder
+                </span>  
+            </div>
         </div>
 
 
@@ -139,44 +174,60 @@
             const canvas = document.getElementById('background-canvas');
             const ctx = canvas.getContext('2d');
 
-            // Set canvas size
+            let time = 0;
+            // const baseColor = [52, 152, 219]; // RGB for #3498db
+            const baseColor = [200, 200, 200]; // RGB for #3498db
+            const lineWidth = 1;
+            const numLines = 15;
+
             function resizeCanvas() {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
             }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
 
-            // Wave parameters
-            const waves = [
-                { amplitude: 50, frequency: 0.02, speed: 0.03, color: 'rgba(200, 200, 200, 0.1)' },
-                { amplitude: 30, frequency: 0.03, speed: 0.02, color: 'rgba(220, 220, 220, 0.1)' },
-                { amplitude: 20, frequency: 0.04, speed: 0.01, color: 'rgba(240, 240, 240, 0.1)' }
-            ];
-
-            let time = 0;
-
-            function drawWave() {
+            function drawContourLines() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                waves.forEach(wave => {
+                for (let l = 0; l < numLines; l++) {
                     ctx.beginPath();
-                    ctx.moveTo(0, canvas.height / 2);
 
-                    for (let x = 0; x < canvas.width; x++) {
-                        const y = Math.sin(x * wave.frequency + time * wave.speed) * wave.amplitude + canvas.height / 2;
-                        ctx.lineTo(x, y);
+                    for (let x = 0; x <= canvas.width; x += 5) {
+                        const normalizedX = x / canvas.width - 0.5; // -0.5 to 0.5
+                        const baseY = canvas.height / 2;
+                        
+                        // Create a parabolic curve
+                        const parabola = -4 * Math.pow(normalizedX, 2) + 1.0;
+                        
+                        // Add some waviness
+                        const waviness = 
+                            Math.sin(normalizedX * 10 + time + l * 0.5) * 0.1 +
+                            Math.sin(normalizedX * 20 + time * 1.1 + l * 0.7) * 0.05;
+                        
+                        const y = baseY + (parabola + waviness) * canvas.height * 0.4 - l * 20;
+                        
+                        if (x === 0) {
+                            ctx.moveTo(x, y);
+                        } else {
+                            ctx.lineTo(x, y);
+                        }
                     }
 
-                    ctx.strokeStyle = wave.color;
+                    const alpha = 0.3 + (0.7 * l / numLines);
+                    ctx.strokeStyle = `rgba(${baseColor[0]}, ${baseColor[1]}, ${baseColor[2]}, ${alpha})`;
+                    ctx.lineWidth = lineWidth;
                     ctx.stroke();
-                });
-
-                time += 0.05; // Increment time to create animation
-                requestAnimationFrame(drawWave);
+                }
             }
 
-            drawWave(); // Start the animation
+            function animate() {
+                time += 0.005;
+                drawContourLines();
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            animate();
         </script>
 
         <!-- Email script -->
