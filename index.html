@@ -184,41 +184,55 @@
             <h2 class="subheading">
                 Get Started With Lumosity
             </h2>
-            <form class="interest-form" action="">
+            <form id="InterestForm" class="interest-form" action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdr68osKiGOIjYuwgkGzjimQfKm_yjBD80qiNZltUGezduMaw/formResponse" onsubmit="return validateEmail();" method="POST">
                 <div class="form-grid">
                     <div class="form-item full-width">
                         <label for="signup-email" class="signup-label required-label">Work Email</label>
-                        <input type="email" id="signup-email" name="signup-email" required>
+                        <input
+                            type="email"
+                            id="signup-email"
+                            name="entry.1811966333"
+                            onblur="validateEmail();"
+                            required
+                        >
+                        <label  
+                            id="email-error"
+                            class="missing-required-label"
+                            style="display: none;color:red;"
+                        ></label>
                     </div>
                     
                     <div class="form-item">
                         <label for="signup-firstname">First Name</label>
                         <input
                             type="text"
-                            id="signup-firstname"
-                            name="signup-firstname"
+                            id="firstname"
+                            name="entry.1701009206"
                         >
                     </div>
                     
                     <div class="form-item">
                         <label for="signup-lastname">Last Name</label>
-                        <input type="text" id="signup-lastname" name="signup-lastname">
+                        <input type="text" id="signup-lastname" name="entry.1232246200">
                     </div>
                     
                     <div class="form-item">
                         <label for="signup-companyname">Company Name</label>
-                        <input type="text" id="signup-companyname" name="signup-companyname">
+                        <input type="text" id="signup-companyname" name="entry.1052566724">
                     </div>
                     
                     <div class="form-item">
                         <label for="signup-typeofcompany">Type of Firm</label>
-                        <input type="text" id="signup-typeofcompany" name="signup-typeofcompany">
+                        <input type="text" id="signup-typeofcompany" name="entry.897382619">
                     </div>
                     
                     <div class="form-item full-width">
                         <label for="signup-attribution">How did you hear about us?</label>
-                        <!-- <input type="text" id="signup-attribution" name="signup-attribution"> -->
-                         <select id="signup-attribution" name="signup-attribution">
+                         <select    
+                            id="signup-attribution"
+                            name="entry.1757653081"
+                            onchange="showOtherField();"
+                        >
                             <option value="">-- Please Select --</option>
                             <option value="from-colleague">From A Colleague</option>
                             <option value="social-media">Social Media</option>
@@ -227,14 +241,21 @@
                             <option value="other">Other (Please Specify)</option>
                          </select>
                     </div>
+
+                    <div id="other-field" class="form-item full-width" style="display: none;">
+                        <label for="signup-other">Please specify:</label>
+                        <input type="text" id="other" name="entry.978666421">
+                    </div>
                 </div>
+                <input type="submit" hidden />
             </form>
 
             <button
                 class="btn-item"
-                style="padding-left:1rem;padding-right:1rem;"
+                style="padding: 0.5rem 1rem 0.5rem 1rem"
                 type="submit"
                 form="get-started"
+                onclick="return validateEmail();"
             >
                 Submit
             </button>
@@ -370,13 +391,74 @@
             });
         </script>
 
-        <!-- Email script -->
+        <!-- Form / Emailscript -->
         <script>
-            document.getElementById('signup-form').addEventListener('submit', function(e) {
+            function showOtherField() {
+                const attribution = document.getElementById('signup-attribution');
+                const otherField = document.getElementById('other-field');
+
+                if (attribution.value === 'other') {
+                    console.log("block")
+                    otherField.style.display = 'block';
+                } else {
+                    otherField.style.display = 'none';
+                }
+            }
+
+            function validateEmail() {
+                const emailInput = document.getElementById('signup-email');
+                const value = emailInput.value;
+
+                const errorLabel = document.getElementById('email-error');
+
+                let isValid = String(value)
+                    .toLowerCase()
+                    .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+
+                if (!isValid) {
+                    emailInput.style.border = "1px solid red";
+                    errorLabel.style.display = "block";
+                    errorLabel.textContent = "Please enter a valid email.";
+                    return false;
+                }
+
+                const bannedDomains = [
+                    "@gmail",
+                    "@yahoo",
+                    "@hotmail",
+                    "@outlook",
+                    "@hotmail",
+                    "@aol",
+                    "@protonmail",
+                    "@icloud",
+                    "@rightbliss.beauty",
+                    "@silesia.life",
+                ]
+                for (const domain of bannedDomains) {
+                    if (value.includes(domain)) {
+                        isValid = false;
+                        break;
+                    }
+                }
+
+                if (!isValid) {
+                    emailInput.style.border = "1px solid red";
+                    errorLabel.style.display = "block";
+                    errorLabel.textContent = "Please enter a work email.";
+                    return false;
+                } else {
+                    emailInput.style.border = "auto";
+                    errorLabel.style.display = "none";
+                    return true;
+                }
+            }
+
+            document.getElementById('InterestForm').addEventListener('submit', function(e) {
+                console.log("submitting")
                 e.preventDefault();
                 
                 let formData = new FormData(e.target);
-                const submitMessage = "<div>Great! We've received your email. Stay tuned for exciting updates.</div>"
+                const submitMessage = `<div style="text-align:center;margin-top:55px;color:#fb9120">Thank you for interest in Lumosity! We've received your email and will reach out shortly with details.</div>`
 
                 const options = {
                     method: 'POST',
@@ -387,10 +469,10 @@
                 }
                 
                 fetch(e.target.action, options).then(response => {
-                    document.getElementById('signup-form').outerHTML = submitMessage;
+                    document.getElementById('get-started').outerHTML = submitMessage;
                 }).catch(error => {
                     // console.error('There has been a problem with your fetch operation:', error);
-                    document.getElementById('signup-form').outerHTML = submitMessage;
+                    document.getElementById('get-started').outerHTML = submitMessage;
                 });
             });
         </script>
