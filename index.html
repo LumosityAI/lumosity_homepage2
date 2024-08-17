@@ -45,7 +45,9 @@
 
                 <span class="navbar-group">
                     <span class="navbar-item">
-                        Products
+                        <a href="#product">
+                            Products
+                        </a>
                     </span>
                     <span class="navbar-item">
                         Solutions
@@ -108,9 +110,9 @@
 
 
         <!-- Product Description -->
-        <div class="product-container">
-            <div class="product-section">
-                <span>
+        <div id="product" class="product-container">
+            <div class="product-section left">
+                <span class="product-description">
                     <h2>Insights Before You Know It</h2>
                     <p>
                         Lumosity processes data throughout the day...surfaces important
@@ -122,11 +124,11 @@
                 </span>
             </div>
 
-            <div class="product-section">
+            <div class="product-section right">
                 <span class="placeholder">
                     placeholder
                 </span>
-                <span>
+                <span class="product-description">
                     <h2>Automate Your Workflows</h2>
                     <p>
                         Lumosity processes...so you can spend less time on rote tasks
@@ -135,8 +137,8 @@
                 </span>
             </div>
 
-            <div class="product-section">
-                <div>
+            <div class="product-section left">
+                <div class="product-description">
                     <h2>Tailored To You</h2>
                     <p>
                         Dashboards and summaries...
@@ -146,6 +148,70 @@
                     placeholder
                 </span>  
             </div>
+        </div>
+
+
+        <div id="company">
+
+        </div>
+
+
+        <div id="get-started" class="signup">
+            <h2>Get Started With Lumosity</h2>
+            <form class="interest-form" action="">
+                <div class="form-grid">
+                    <div class="form-item full-width">
+                        <label for="signup-email" class="signup-label required-label">Work Email</label>
+                        <input type="email" id="signup-email" name="signup-email" required>
+                    </div>
+                    
+                    <div class="form-item">
+                        <label for="signup-firstname">First Name</label>
+                        <input
+                            type="text"
+                            id="signup-firstname"
+                            name="signup-firstname"
+                        >
+                    </div>
+                    
+                    <div class="form-item">
+                        <label for="signup-lastname">Last Name</label>
+                        <input type="text" id="signup-lastname" name="signup-lastname">
+                    </div>
+                    
+                    <div class="form-item">
+                        <label for="signup-companyname">Company Name</label>
+                        <input type="text" id="signup-companyname" name="signup-companyname">
+                    </div>
+                    
+                    <div class="form-item">
+                        <label for="signup-typeofcompany">Type of Firm</label>
+                        <input type="text" id="signup-typeofcompany" name="signup-typeofcompany">
+                    </div>
+                    
+                    <div class="form-item full-width">
+                        <label for="signup-attribution">How did you hear about us?</label>
+                        <!-- <input type="text" id="signup-attribution" name="signup-attribution"> -->
+                         <select id="signup-attribution" name="signup-attribution">
+                            <option value="">-- Please Select --</option>
+                            <option value="from-colleague">From A Colleague</option>
+                            <option value="social-media">Social Media</option>
+                            <option value="online">Google Search</option>
+                            <option value="public-event">Public Event</option>
+                            <option value="other">Other (Please Specify)</option>
+                         </select>
+                    </div>
+                </div>
+            </form>
+
+            <button
+                class="btn-item"
+                style="padding-left:1rem;padding-right:1rem;"
+                type="submit"
+                form="get-started"
+            >
+                Submit
+            </button>
         </div>
 
 
@@ -227,7 +293,7 @@
 
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
-            animate();
+            // animate();
         </script>
 
         <!-- Email script -->
