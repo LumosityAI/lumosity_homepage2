@@ -45,7 +45,7 @@
 
                 <span class="navbar-group">
                     <span class="navbar-item">
-                        <a href="#product">
+                        <a href="#product" class="navbar-link">
                             Products
                         </a>
                     </span>
@@ -53,18 +53,23 @@
                         Solutions
                     </span>
                     <span class="navbar-item">
-                        Company
+                        <a href="#company" class="navbar-link">
+                            Company
+                        </a>
                     </span>
                 </span>
 
                 <span class="btn-group">
                     <button
                         class="btn-item"
-                        style="padding-left:1rem;padding-right:1rem;"
+                        style="padding: 0.5rem 1rem 0.5rem 1rem"
                     >
                         Login
                     </button>
-                    <button class="btn-item">
+                    <button
+                        class="btn-item"
+                        onclick="document.getElementById('get-started').scrollIntoView({ behavior: 'smooth' });"
+                    >
                         Get Started
                     </button>
                 </span>
@@ -93,6 +98,7 @@
                 <button
                     class="btn-item"
                     style="padding: 0.5rem 1rem;"
+                    onclick="document.getElementById('get-started').scrollIntoView({ behavior: 'smooth' });"
                 >
                     Get Started
                 </button>
@@ -151,13 +157,33 @@
         </div>
 
 
-        <div id="company">
-
+        <div id="company" class="company-container">
+            <h2 class="subheading">
+                Who We Are
+            </h2>
+            <div class="team-description">
+                <div class="team-description-section">
+                    <h3>Finance Team</h3>
+                    <p>
+                        Our team has a wide range of experience in the finance industry,
+                        from portfolio managers to analysts.
+                    </p>
+                </div>
+                <div class="team-description-section">
+                    <h3>Tech Team</h3>
+                    <p>
+                        Our tech team has extensive experience at notable tech companies and
+                        have built notable financial applications before.
+                    </p>
+                </div>
+            </div>
         </div>
 
 
         <div id="get-started" class="signup">
-            <h2>Get Started With Lumosity</h2>
+            <h2 class="subheading">
+                Get Started With Lumosity
+            </h2>
             <form class="interest-form" action="">
                 <div class="form-grid">
                     <div class="form-item full-width">
@@ -216,17 +242,18 @@
 
 
         <!-- Copyright -->
-        <div class="copyright" style="padding-top:1rem;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p style="font-size:0.75rem;margin-bottom:0;">
-                            Copyright © <a href="/">Lumosity</a> 
-                            <span id="copyright-year"></span>. All
-                            rights reserved.
-                        </p>
-                    </div>
-                </div>
+        <div class="footer">
+            <div class="footer-logo">
+                <a href="/">
+                    <img src="images/favicon.jpg" alt="alternative" style="width:60px;height:60px;"/>
+                </a>
+            </div>
+            <div class="copyright">
+                <p style="font-size:1rem;margin-left:auto">
+                    Copyright © <a href="/">Lumosity</a> 
+                    <span id="copyright-year"></span>. All
+                    rights reserved.
+                </p>
             </div>
         </div>
         <!-- end of copyright -->
@@ -234,6 +261,19 @@
         <!-- Scripts -->
         <script>
             document.getElementById('copyright-year').innerHTML = new Date().getFullYear();
+        </script>
+
+        <!-- Smooth scroll script for navbar links -->
+        <script>
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+            
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
         </script>
 
         <script>

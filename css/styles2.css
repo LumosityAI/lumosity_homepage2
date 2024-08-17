@@ -70,6 +70,7 @@ body {
     width: 100%;
     border-bottom: 1px solid var(--secondary-accent);
     backdrop-filter: blur(10px);
+    height: 75px;
 }
 
 .navbar-container {
@@ -78,6 +79,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0px 10px 0px 10px;
+    height: 100%;
 }
 
 .navbar-group {
@@ -92,6 +94,16 @@ body {
 
 .navbar-item-bg {
     background-color: var(--primary-bg);
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.subheading {
+    align-self: center;
+    text-align: center;
 }
 
 .btn-group {
@@ -167,16 +179,31 @@ body {
     border: 1px solid red;
 }
 
+.company-container {
+    align-self: center;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-description {
+    align-self: center;
+    display: grid;
+    grid-template-columns: 500px 500px;
+    gap: 75px;
+}
+
+.team-description-section {
+    text-align: center;
+}
+
 .signup {
     align-self: center;
     margin-top: 10vh;
     border: 1px solid var(--ternary-accent);
     width: 75vw;
     padding: 25px;
-}
-
-.signup > h2 {
-    text-align: center;
 }
 
 .interest-form {
@@ -213,7 +240,16 @@ select, input {
     color: red;
 }
 
-.copyright {
-    margin-top: auto;
-    align-self: center;
+.footer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--secondary-accent);
+    margin-top: 35px;
+}
+
+.footer-logo {
+    padding: 25px;
 }
