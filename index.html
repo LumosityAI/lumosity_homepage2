@@ -31,6 +31,9 @@
         <link rel="icon" href="images/favicon.jpg">
     </head>
     <body>
+        <!-- <div class="waves-background"></div> -->
+        <div class="fading-grid-background"></div>
+
         <!-- Navigation -->
         <nav class="navbar">
             <div class="navbar-container">
@@ -62,168 +65,49 @@
         </nav>
         <!-- end of navigation -->
 
-        
-        <!-- Header -->
-        <header id="header" class="header" style="height:100%;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="h1-large">Lumosity</h1>
-                        <p class="p-large">Helping institutional investors make better decisions, faster.</p>
-                        <p class="p-large">Sign up below to learn more and stay up-to-date.</p>
+        <!-- Hero -->
+        <div class="hero">
+            <h1 class="hero-title">
+                Better Decisions, Faster
+            </h1>
+            <span class="hero-subtitle">
+                Helping financial experts cut through the noise by automating processes<br /> and highlighting key insights for rapid, informed decision-making.
+            </span>
+            <span
+                class="btn-group"
+                style="margin-top: 2rem;align-self: center;"
+            >
+                <button
+                    class="btn-item"
+                    style="padding: 0.5rem 1rem;"
+                >
+                    Login
+                </button>
+                <button
+                    class="btn-item"
+                    style="padding: 0.5rem 1rem;"
+                >
+                    Get Started
+                </button>
+            </span>
 
-                        <!-- Sign Up Form 1 -->
-                        <form id="signup-form" action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdr68osKiGOIjYuwgkGzjimQfKm_yjBD80qiNZltUGezduMaw/formResponse" method="POST">
-                            <div class="mb-4 form-floating">
-                                <input type="email" name="entry.1811966333" class="form-control" id="signup" placeholder="name@example.com">
-                                <label for="signup">Email address</label>
-                            </div>
-                            <button type="submit" class="form-control-submit-button">Learn More</button>
-                        </form>
-                        <!-- end of sign up form 1 -->
-
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
-                <!-- <video poster="images/header-video-preview.jpg" autoplay muted> -->
-                    <!-- <source src="images/header-video.mp4" type="video/mp4"> -->
-                <!-- </video> end of video -->
-            <!-- </div> end of embed-responsive -->
-        </header> <!-- end of header -->
-        <!-- end of header -->
-
-        <!-- Features -->
-        <!-- <div class="basic-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div id="features-section" class="section-title">FEATURES</div>
-                        <h2 class="h2-heading">Streamline Your Investment Workflow</h2>
-                    </div>
+            <!-- <form id="signup-form" action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdr68osKiGOIjYuwgkGzjimQfKm_yjBD80qiNZltUGezduMaw/formResponse" method="POST">
+                <div class="mb-4 form-floating">
+                    <input type="email" name="entry.1811966333" class="form-control" id="signup" placeholder="name@example.com">
+                    <label for="signup">Email address</label>
                 </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled first">
-                            <li class="d-flex">
-                                <div class="list-icon bg-2">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h4 class="list-item-title">Personalized Data Assistant</h4>
-                                    <p class="list-item-text">Lumosity learns your investment priorities and patterns to generate insights and ideas tailored specifically for you.</p>
-                                </div>
-                            </li>
-                            <li class="d-flex">
-                                <div class="list-icon bg-3">
-                                    <i class="fas fa-thumbs-up"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h4 class="list-item-title">Easy To Use</h4>
-                                    <p class="list-item-text">Say goodbye to the days of writing complex Excel formulas. Lumosity takes instructions in plain English.</p>
-                                </div>
-                            </li>
-                            <li class="d-flex">
-                                <div class="list-icon bg-1">
-                                    <i class="fas fa-stopwatch"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h4 class="list-item-title">Real-Time Data</h4>
-                                    <p class="list-item-text">Lumosity monitors live data streams and runs real-time analyses to alert you to key changes in the market.</p>
-                                </div>
-                            </li>
-                        </ul> 
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled second">
-                            <li class="d-flex">
-                                <div class="list-icon bg-5">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h4 class="list-item-title">Optimized For Big Data</h4>
-                                    <p class="list-item-text">Lumosity works with structured and unstructured data and can process millions of rows in seconds.</p>
-                                </div>
-                            </li>
-                            <li class="d-flex">
-                                <div class="list-icon bg-4">
-                                    <i class="fas fa-lock"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h4 class="list-item-title">Privacy First</h4>
-                                    <p class="list-item-text">We never look at your raw data or give it to third parties. Your proprietary data will always remain internal.</p>
-                                </div>
-                            </li>
-                            
-                            <li class="d-flex">
-                                <div class="list-icon bg-2">
-                                    <i class="fas fa-gears"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h4 class="list-item-title">Integrations</h4>
-                                    <p class="list-item-text">Lumosity works seamlessly with Excel and tools like Bloomberg and FRED so you always have the latest data.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div> 
-            </div> 
-        </div>  -->
-        <!-- end of features -->
+                <button type="submit" class="form-control-submit-button">Learn More</button>
+            </form> -->
+        </div>
+        <!-- end of hero -->
 
 
-        <!-- Footer -->
-        <!-- <div class="footer"> -->
-            <!-- <div class="container"> -->
-                <!-- <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-col first">
-                            <h6>Contact</h6>
-                            <p class="p-small">Email - <a href="mailto:eigensight@gmail.com"><strong>eigensight@gmail.com</strong></a></p>
-                        </div>
-                        <div class="footer-col second">
-                            <h6>Company</h6>
-                            <ul class="list-unstyled li-space-lg p-small">
-                                <li><a href="#">About</a></li>
-                                <li><a href="#features-section">Features</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-col third"> -->
-                            <!-- <h6>About</h6> -->
-                            <!-- <span class="fa-stack">
-                                <a href="#your-link">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
-                                </a>
-                            </span>
-                            <span class="fa-stack">
-                                <a href="#your-link">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-twitter fa-stack-1x"></i>
-                                </a>
-                            </span>
-                            <span class="fa-stack">
-                                <a href="#your-link">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-pinterest-p fa-stack-1x"></i>
-                                </a>
-                            </span>
-                            <span class="fa-stack">
-                                <a href="#your-link">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-instagram fa-stack-1x"></i>
-                                </a>
-                            </span> -->
-                            <!-- <p class="p-small">Email - <a href="mailto:eigensight@gmail.com"><strong>eigensight@gmail.com</strong></a></p> -->
-                            <!-- <ul class="list-unstyled li-space-lg p-small"> -->
-                                <!-- <li><a href="#">Who we are</a></li> -->
-                            <!-- </ul> -->
-                        <!-- </div> end of footer-col -->
-                    <!-- </div> end of col -->
-                <!-- </div> end of row -->
-            <!-- </div> end of container -->
-        <!-- </div> -->
-        <!-- end of footer -->
+        <!-- Product Description -->
+        <div>
+            <h2>Insights Before You Know It</h2>
+            <h2>Automate Your Workflows</h2>
+            <h2>Dashboard/Summaries Tailored To You</h2>
+        </div>
 
 
         <!-- Copyright -->
@@ -231,18 +115,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="p-small" style="margin-bottom: 0;">Copyright © <a href="#">Lumosity</a> 2023</p>
-                    </div> <!-- end of col -->
-                </div> <!-- enf of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of copyright --> 
+                        <p style="font-size:0.75rem;margin-bottom:0;">
+                            Copyright © <a href="/">Lumosity</a> 
+                            <span id="copyright-year"></span>. All
+                            rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- end of copyright -->
 
         <!-- Scripts -->
-        <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-        <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-        <script src="js/purecounter.min.js"></script> <!-- Purecounter counter for statistics numbers -->
-        <script src="js/scripts.js"></script> <!-- Custom scripts -->
+        <script>
+            document.getElementById('copyright-year').innerHTML = new Date().getFullYear();
+        </script>
 
         <!-- Email script -->
         <script>
