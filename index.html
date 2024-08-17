@@ -63,6 +63,7 @@
                     <button
                         class="btn-item"
                         style="padding: 0.5rem 1rem 0.5rem 1rem"
+                        onclick="window.location.href='beta.lumosity.ai'"
                     >
                         Login
                     </button>
@@ -92,6 +93,7 @@
                 <button
                     class="btn-item"
                     style="padding: 0.5rem 1.75rem;"
+                    onclick="window.location.href='beta.lumosity.ai'"
                 >
                     Login
                 </button>
@@ -177,14 +179,14 @@
             <h2 class="subheading">
                 Get Started With Lumosity
             </h2>
-            <form id="InterestForm" class="interest-form" action="https://docs.google.com/forms/d/1_uWYrw7JBOmOwA4obejG796RWBY78em7S1M-068WW-4/formResponse" onsubmit="return validateEmail();" method="POST">
+            <form id="InterestForm" class="interest-form" action="https://docs.google.com/forms/u/3/d/e/1FAIpQLSeU3pssCkzo1bWMXBPvvoEJ-kZqE-asMmpRrElXGTEjvLgcRA/formResponse" method="POST">
                 <div class="form-grid">
                     <div class="form-item full-width">
                         <label for="signup-email" class="signup-label required-label">Work Email</label>
                         <input
                             type="email"
                             id="signup-email"
-                            name="entry.1811966333"
+                            name="entry.1037701704"
                             onblur="validateEmail();"
                             required
                         >
@@ -200,30 +202,30 @@
                         <input
                             type="text"
                             id="firstname"
-                            name="entry.1701009206"
+                            name="entry.1113069405"
                         >
                     </div>
                     
                     <div class="form-item">
                         <label for="signup-lastname">Last Name</label>
-                        <input type="text" id="signup-lastname" name="entry.1232246200">
+                        <input type="text" id="signup-lastname" name="entry.1512759550">
                     </div>
                     
                     <div class="form-item">
                         <label for="signup-companyname">Company Name</label>
-                        <input type="text" id="signup-companyname" name="entry.1052566724">
+                        <input type="text" id="signup-companyname" name="entry.1445096850">
                     </div>
                     
                     <div class="form-item">
                         <label for="signup-typeofcompany">Type of Firm</label>
-                        <input type="text" id="signup-typeofcompany" name="entry.897382619">
+                        <input type="text" id="signup-typeofcompany" name="entry.309162164">
                     </div>
                     
                     <div class="form-item full-width">
                         <label for="signup-attribution">How did you hear about us?</label>
                          <select    
                             id="signup-attribution"
-                            name="entry.1757653081"
+                            name="entry.574571794"
                             onchange="showOtherField();"
                         >
                             <option value="">-- Please Select --</option>
@@ -237,7 +239,7 @@
 
                     <div id="other-field" class="form-item full-width" style="display: none;">
                         <label for="signup-other">Please specify:</label>
-                        <input type="text" id="other" name="entry.978666421">
+                        <input type="text" id="other" name="entry.1449697587">
                     </div>
                 </div>
                 <input type="submit" hidden />
@@ -247,7 +249,7 @@
                 class="btn-item"
                 style="padding: 0.5rem 1rem 0.5rem 1rem"
                 type="submit"
-                form="get-started"
+                form="InterestForm"
                 onclick="return validateEmail();"
             >
                 Submit
@@ -264,9 +266,9 @@
             </div>
             <div class="copyright">
                 <p style="font-size:1rem;margin-left:auto">
-                    Copyright © <a href="/">Lumosity</a> 
-                    <span id="copyright-year"></span>. All
-                    rights reserved.
+                    Copyright © <span id="copyright-year"></span>
+                    Lumosity.
+                    All rights reserved.
                 </p>
             </div>
         </div>
@@ -450,6 +452,9 @@
             document.getElementById('InterestForm').addEventListener('submit', function(e) {
                 console.log("submitting")
                 e.preventDefault();
+                if (!validateEmail()) {
+                    return;
+                }
                 
                 let formData = new FormData(e.target);
                 const submitMessage = `<div style="text-align:center;margin-top:55px;color:#fb9120">Thank you for interest in Lumosity! We've received your email and will reach out shortly with details.</div>`
