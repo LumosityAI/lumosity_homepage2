@@ -273,7 +273,7 @@ h2 {
 
 @media screen and (max-width: 1024px) {
     .placeholder {
-        height: 100%;
+        height: 300px;
         margin: 0px 20px;
         border: 1px solid var(--secondary-accent);
     }
