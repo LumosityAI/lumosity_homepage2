@@ -135,6 +135,11 @@ body {
     box-shadow: 0px 0px 5px 0px var(--primary-accent);
 }
 
+.login-btn {
+    background-color: var(--primary-text);
+    color: var(--primary-bg);
+}
+
 .hero {
     padding-top: 20vh;
     display: flex;
