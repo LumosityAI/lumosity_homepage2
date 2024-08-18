@@ -2,7 +2,7 @@
 
 body {
     background-color: var(--primary-bg);
-    font-family: "Noto Sans JP", sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -164,7 +164,13 @@ body {
 
 .hero-title {
     font-size: 60px;
-    font-weight: 700;
+    font-weight: 450;
+}
+
+h2 {
+    font-size: 45px;
+    font-weight: 450;
+    margin-bottom: 10px;
 }
 
 .hero-subtitle {
@@ -198,16 +204,18 @@ body {
     }
 }
 
-@media screen and (min-width: 1025px) and (max-width: 1300px) {
-    .product-section {
-        grid-template-columns: 300px 700px;
-    }    
-}
-
 @media screen and (min-width: 1301px) {
     .product-section {
         grid-template-columns: 500px 800px;
+        gap: 50px;
     }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1300px) {
+    .product-section {
+        grid-template-columns: 300px 700px;
+        gap: 50px;
+    }    
 }
 
 /* Mobile layout */
