@@ -2,42 +2,11 @@
 
 body {
     background-color: var(--primary-bg);
-    font-family: "Poppins", sans-serif;
+    font-family: "Ubuntu", sans-serif;
     margin: 0;
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-
-.fading-grid-background {
-    --grid-color: rgba(160, 160, 160, 0.2);
-    --grid-size: 25px;
-    --fade-height: 200px;
-    
-    background-image:
-        linear-gradient(to bottom,
-        var(--grid-color) 0%,
-        transparent 100%
-        ),
-        linear-gradient(to right,
-        var(--grid-color) 1px,
-        transparent 1px
-        ),
-        linear-gradient(to bottom,
-        var(--grid-color) 1px,
-        transparent 1px
-        );
-    background-size: 
-        100% var(--fade-height),
-        var(--grid-size) var(--grid-size),
-        var(--grid-size) var(--grid-size);
-    background-repeat: no-repeat, repeat, repeat;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
 }
 
 #background-canvas {
@@ -49,26 +18,14 @@ body {
     z-index: -1;
 }
 
-.waves-background {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../images/waves.avif');
-    filter: invert(1);
-    background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-
 .navbar {
     z-index: 1;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    border-bottom: 1px solid var(--secondary-accent);
+    /* border-bottom: 1px solid var(--secondary-accent); */
+    border-bottom: 1px solid #dadada;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(5px);
     height: 75px;
@@ -101,6 +58,7 @@ body {
 .navbar-item {
     cursor: pointer;
     padding: 0px 5px;
+    font-size: 18px;
 }
 
 .navbar-item:hover {
@@ -116,6 +74,11 @@ body {
 .subheading {
     align-self: center;
     text-align: center;
+    color: var(--primary-text);
+}
+
+h2, p {
+    color: var(--primary-text);
 }
 
 .btn-group {
@@ -130,6 +93,9 @@ body {
     border: 0px;
     box-shadow: 0px 0px 5px 0px var(--secondary-accent);
     color: var(--primary-text);
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .btn-item:hover {
@@ -138,7 +104,7 @@ body {
 }
 
 .login-btn {
-    background-color: var(--primary-text);
+    background-image: linear-gradient(var(--primary-text), grey);
     color: var(--primary-bg);
 }
 
@@ -166,7 +132,8 @@ body {
 
 .hero-title {
     font-size: 60px;
-    font-weight: 450;
+    font-weight: 400;
+    color: #2E3742;
 }
 
 h2 {
@@ -177,6 +144,7 @@ h2 {
 
 .hero-subtitle {
     font-size: 20px;
+    color: #2E3742;
 }
 
 .product-container {
@@ -309,11 +277,49 @@ h2 {
 }
 
 .signup {
-    align-self: center;
-    margin-top: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    opacity: 0;
+    z-index: 1;
+    display: flex;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#get-started.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.signup-contents {
     border: 1px solid var(--ternary-accent);
-    width: 75vw;
+    position: relative;
     padding: 25px;
+    border-radius: 10px;
+    background-color: var(--primary-bg);
+    width: 50vw;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+#get-started.active .signup-contents {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.signup-exit {
+    cursor: pointer;
+    margin-left: auto;
 }
 
 .interest-form {
@@ -354,7 +360,8 @@ select, input {
     width: 100%;
     height: 100px;
     display: grid;
-    border-top: 1px solid var(--secondary-accent);
+    /* border-top: 1px solid var(--secondary-accent); */
+    border-top: 1px solid #dadada;  
     margin-top: 35px;
 }
 
