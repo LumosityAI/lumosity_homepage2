@@ -326,6 +326,25 @@ h2 {
     margin-bottom: 25px;
 }
 
+@media screen and (max-height: 1000px) {
+    .interest-form-header {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .signup-contents {
+        width: 100vw;
+        align-self: center;
+        justify-self: center;
+    }
+}
+
+.interest-form-header {
+    align-self: center;
+    text-align: center;
+    color: var(--primary-text);
+}
+
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
