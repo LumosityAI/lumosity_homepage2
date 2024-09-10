@@ -281,7 +281,7 @@
                     </div>
                     <input type="submit" hidden />
                     <br />
-                    <div class="g-recaptcha" data-sitekey="6LcmgD0qAAAAANAkfdcgw_GJPf6O8xlW-D7gLUYr"></div>
+                    <div class="g-recaptcha" data-sitekey="6LcmgD0qAAAAANAkfdcgw_GJPf6O8xlW-D7gLUYr" data-callback="enableSubmit"></div>
                 </form>
 
                 <button
@@ -290,6 +290,7 @@
                     style="padding: 0.5rem 1rem 0.5rem 1rem;max-width:fit-content"
                     type="submit"
                     form="InterestForm"
+                    disabled
                 >
                     Submit
                 </button>
@@ -476,6 +477,16 @@
                     closeSignupForm();
                 }
             });
+        </script>
+
+        <script>
+            function enableSubmit() {
+                document.getElementById("form-submit-btn").disabled = false;
+            }
+            
+            function onSubmit(token) {
+                document.getElementById("InterestForm").submit();
+            }
         </script>
 
         <!-- Form / Emailscript -->
