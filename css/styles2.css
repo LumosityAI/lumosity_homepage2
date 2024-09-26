@@ -21,6 +21,7 @@
   }
   
 
+
 body {
     background-color: var(--cream);
     font-family: "Articulat CF";
@@ -29,7 +30,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow-y:auto;
 }
 
 #background-canvas {
@@ -265,14 +265,13 @@ p {
     align-self: center;
     display: flex;
     flex-direction: column;
-    max-width: 1300px; /* Limit maximum width for larger screens */
     margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Add some padding on the sides */
+    padding: 0 10vw; /* Add some padding on the sides */
+
 }
 
 .product-section {
     display: grid;
-    min-height: 500px; /* Use min-height instead of fixed height */
     align-items: center; /* Vertically center content */
     gap: 100px; /* Consistent gap between text and image */
 }
