@@ -1,8 +1,22 @@
 @import url('variables.css');
 
+@font-face {
+    font-family: 'Articulat CF';
+    src: url('../fonts/ArticulatCF-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Articulat CF';
+    src: url('../fonts/ArticulatCF-Normal.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
-    background-color: var(--primary-bg);
-    font-family: "Ubuntu", sans-serif;
+    background-color: var(--cream);
+    font-family: "Articulat CF";
+    font-weight: 400;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -17,14 +31,13 @@ body {
     left: 0;
     z-index: -1;
 }
-
+/* nav bar styles */
 .navbar {
     z-index: 1;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    /* border-bottom: 1px solid var(--secondary-accent); */
     border-bottom: 1px solid #dadada;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(5px);
@@ -34,12 +47,21 @@ body {
 .navbar-container {
     display: flex;
     z-index: 2;
-    align-items: center;
+    align-items: center; /* This ensures vertical alignment */
     justify-content: space-between;
-    padding: 0px 10px 0px 10px;
+    padding: 0px 20px; /* Increased horizontal padding for better spacing */
     height: 100%;
 }
 
+.navbar-container > div {
+    display: flex;
+    align-items: center; /* Aligns logo and text vertically */
+}
+
+.implied-text {
+    margin-left: 10px; /* Adds some space between logo and text */
+    font-size: 18px; /* Adjust as needed */
+}
 
 @media screen and (max-width: 768px) {
     .navbar-group {
@@ -50,15 +72,16 @@ body {
 @media screen and (min-width: 769px) {
     .navbar-group {
         display: flex;
-        gap: 35px;
-        margin-left: 120px;
+        align-items: center; /* Ensures vertical alignment of all items */
+        gap: 20px; /* Reduced gap for better spacing */
     }   
 }
 
 .navbar-item {
     cursor: pointer;
-    padding: 0px 5px;
     font-size: 18px;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-item:hover {
@@ -71,6 +94,36 @@ body {
     color: inherit;
 }
 
+
+/* text styles */
+.orange-text-regular {
+    color: var(--orange);
+}
+
+.orange-text-italics {
+    color: var(--orange);
+    font-style: italic;
+}
+
+.army-text {
+    color: var(--army);
+}
+
+.implied-text {
+
+    color: var(--army);
+
+font-size: 36.3px;
+font-weight: 500;
+line-height: 37.03px;
+letter-spacing: -0.02em;
+text-align: left;
+
+}
+
+
+
+
 .subheading {
     align-self: center;
     text-align: center;
@@ -81,6 +134,8 @@ h2, p {
     color: var(--primary-text);
 }
 
+/* button styles */
+
 .btn-group {
     display: flex;
     gap: 10px;
@@ -88,24 +143,52 @@ h2, p {
 
 .btn-item {
     cursor: pointer;
-    border-radius: 8px;
-    padding: 5px;
-    border: 0px;
-    box-shadow: 0px 0px 5px 0px var(--secondary-accent);
-    color: var(--primary-text);
-    font-family: "Ubuntu", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
+    border-radius: 48px;
+    padding: 12px 24px;
+    border: 2px solid transparent;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.05);
+    font-family: "Articulat CF";
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    text-align: center;
+    transition: 0.5s;
+    padding: 0.5rem 1rem !important;
+    height: auto; /* Ensures the button height is based on content */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-item:hover {
-    transition: 0.5s;
-    box-shadow: 0px 0px 5px 0px var(--primary-accent);
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
 }
 
 .login-btn {
-    background-image: linear-gradient(var(--primary-text), grey);
-    color: var(--primary-bg);
+    background-color: var(--cream);
+    color: var(--dark-grey);
+    border-color: #E6E6E6;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.trial-btn {
+    background-color: var(--orange);
+    color: var(--cream);
+    border-color: rgba(255, 253, 250, 0.2);
+    font-size: 18px;
+    line-height: 25.2px;
+    padding: 18px 36px;
+}
+
+.login-btn-arrow {
+    width: 10.5px;
+height: 10.5px;
+top: 3.75px;
+left: 3.75px;
+gap: 0px;
+border: 2px;
+margin-left: 5px;
+
 }
 
 .hero {
@@ -116,6 +199,8 @@ h2, p {
     text-align: center;
     position: relative;
     overflow: hidden;
+
+
 }
 
 @media screen and (max-width: 768px) {
@@ -131,9 +216,14 @@ h2, p {
 }
 
 .hero-title {
-    font-size: 60px;
     font-weight: 400;
-    color: #2E3742;
+    font-family: "Articulat CF";
+        font-size: 96px;
+    line-height: 96px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    
+    color: var(--army);
 }
 
 h2 {
@@ -143,8 +233,13 @@ h2 {
 }
 
 .hero-subtitle {
-    font-size: 20px;
-    color: #2E3742;
+    font-size: 24px;
+    color: var(--grey);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 33.6px;
+    text-align: center;
+
 }
 
 .product-container {

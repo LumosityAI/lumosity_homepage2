@@ -37,12 +37,8 @@
 
         <title>Implied | Financial Research Platform</title>
 
-        <!-- Download fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
-        
+   
         <!-- Styles -->
         <link href="css/styles2.css" rel="stylesheet">
         
@@ -55,11 +51,17 @@
         <!-- Navigation -->
         <nav id="navbar" class="navbar">
             <div class="navbar-container">
-                <a href="/">
-                    <img src="images/favicon.jpg" alt="alternative" style="width:40px;height:40px;"/>
-                </a> 
+                <div>
+                    <a href="/">
+                        <img src="images/ImpliedLogo.png" alt="alternative" style="width:40px;height:40px;"/>
+                    </a> 
+                    <span class="implied-text">
+                        Implied
+                    </span>
+                </div>
+  
 
-                <span id="navbar-group" class="navbar-group">
+                <span class="navbar-group">
                     <span class="navbar-item">
                         <a href="#product" class="navbar-link">
                             Solutions
@@ -70,23 +72,22 @@
                             Company
                         </a>
                     </span>
-                </span>
-
-                <span class="btn-group">
+                    <button
+                    class="btn-item trial-btn"
+                    style="padding: 0.5rem 1rem 0.5rem 1rem;font-size:14px"
+                    onclick="openSignupForm();"
+                >
+                    Request Trial
+                </button>
                     <button
                         class="btn-item login-btn"
                         style="padding: 0.5rem 1rem 0.5rem 1rem;font-size:14px"
                         onclick="window.location.href='https://beta.lumosity.ai'"
                     >
-                        Login
+                    Login
+                    <img src="images/LoginArrow.png" class="login-btn-arrow" />
                     </button>
-                    <button
-                        class="btn-item"
-                        style="font-size:14px;"
-                        onclick="openSignupForm();"
-                    >
-                        Request Trial
-                    </button>
+    
                 </span>
             </div>
         </nav>
@@ -95,29 +96,30 @@
         <!-- Hero -->
         <div class="hero">
             <h1 class="hero-title">
-                Better Decisions,<br /><span style="color:#fb9120;">Faster</span>
+                Better Decisions,<br /><span class="orange-text-italics">Faster</span>
             </h1>
             <span class="hero-subtitle">
-                Lumosity helps financial experts cut through the noise by automating<br/>processes and highlighting key insights for rapid, informed decision-making.
-            </span>
+                Implied helps financial experts cut through the noise by automating<br/>
+                 processes and highlighting key insights for rapid, informed <br/>
+                 decision-making.            </span>
             <span
                 class="btn-group"
                 style="margin-top: 3rem;align-self: center;"
             >
+
                 <button
-                    class="btn-item login-btn"
-                    style="padding: 0.5rem 1.75rem;"
-                    onclick="window.location.href='https://beta.lumosity.ai'"
-                >
-                    Login
-                </button>
-                <button
-                    class="btn-item"
-                    style="padding: 0.5rem 1rem;"
+                    class="btn-item trial-btn"
                     onclick="openSignupForm();"
                 >
                     Request Trial
                 </button>
+                <button
+                class="btn-item login-btn"
+                onclick="window.location.href='https://app.implied.com'"
+            >
+                Login
+                <img src="images/LoginArrow.png" class="login-btn-arrow" />
+            </button>
             </span>
         </div>
         <!-- end of hero -->
@@ -129,19 +131,16 @@
         </h2>
         <div id="product" class="product-container">
             <div class="product-section">
-                <span class="product-description">
-                    <h2>Live Insights Before You Ask</h2>
-                    <p>
-                        Lumosity processes live data throughout the day, and pushes
-                        important signals to you.
-                        , / signal over noise
-                        processes data throughout the day...surfaces important
-                        insights before you even have to ask. (Put redline gif here)
-                        Lumosity functions as your eyes and ears in the market
-                    </p>
-                </span>
+
                 <span class="placeholder">
                     <img src="images/background-image2.jpg" style="width: 100%;height: 100%;"/>
+                </span>
+                <span class="product-description">
+                    <h2>Live signals, tailored to you</h2>
+                    <p>
+                        Implied functions as your eyes and ears in the market. 
+                        We process live data throughout the day, sift through the noise, and push important signals to you.
+                    </p>
                 </span>
             </div>
 
