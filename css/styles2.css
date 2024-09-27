@@ -235,6 +235,14 @@ margin-left: 5px;
     color: var(--army);
 }
 
+/* Adjustments for mobile devices */
+@media screen and (max-width: 767px) {
+    .hero-title {
+        font-size: 60px; 
+        line-height: 1.2; 
+    }
+}
+
 h2 {
     font-size: 45px;
     font-weight: 450;
@@ -420,7 +428,6 @@ p {
     position: relative;
     max-width: 800px;
     text-align: center;
-    z-index: 2;
     padding: 0 20px;
 }
 
