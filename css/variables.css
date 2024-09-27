@@ -1,7 +1,12 @@
 :root {
-    --primary-accent: #fb9120;
-    --secondary-accent: #666666;
-    --ternary-accent: #aaa;
-    --primary-bg: #fafafa;
-    --primary-text: #2E3742;
+ 
+
+    --orange: #FB9120;
+    --light-orange: #FEDDB9;
+    --cream: #FFFDFA;
+    --light-grey: #E6E6E9;
+    --grey: #9999A1;
+    --dark-grey: #808080;
+    --army: #3F3F37;
+    --black: #1B1B18;
 }
